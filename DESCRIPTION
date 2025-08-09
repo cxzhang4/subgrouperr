@@ -12,3 +12,6 @@ Imports:
     purrr
 URL: https://github.com/cxzhang4/subgrouperr
 BugReports: https://github.com/cxzhang4/subgrouperr/issues
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
