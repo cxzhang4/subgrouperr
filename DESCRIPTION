@@ -1,6 +1,6 @@
 Package: subgrouperr
 Title: Creates Subgroups for Crossover Trials
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: 
     person("Carson", "Zhang", , "carsonzhang4@gmail.com", role = c("aut", "cre"))
 Description: Creates subgroups for crossover trial differences (comparisons between 2 treatments).
