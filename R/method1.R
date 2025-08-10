@@ -16,7 +16,7 @@ method1 <- function(D, threshold = 0, CAF = 0.5) {
   D_sorted = D_sorted_res$x
   D_sorted_idx_in_orig <- D_sorted_res$ix
   
-  adjacent_gaps <- diff(D_sorted$x)
+  adjacent_gaps <- diff(D_sorted)
   
   max_gap <- max(adjacent_gaps)
   min_gap <- min(adjacent_gaps)
@@ -44,7 +44,7 @@ method1 <- function(D, threshold = 0, CAF = 0.5) {
     } else {
       if (adjacent_gaps[i - 1] > CAV) {
         # start new subgroup
-        subgroups <- append(subgroups, D_sorted_idx_in_orig[current_subgroup])
+        subgroups <- append(subgroups, list(D_sorted_idx_in_orig[current_subgroup]))
         current_subgroup <- c(i)
         i <- max(tied_indices) + 1
       } else {
@@ -60,7 +60,7 @@ method1 <- function(D, threshold = 0, CAF = 0.5) {
           current_subgroup = c(current_subgroup, i)
         } else {
           # start new subgroup
-          subgroups = append(subgroups, D_sorted_idx_in_orig[current_subgroup])
+          subgroups = append(subgroups, list(D_sorted_idx_in_orig[current_subgroup]))
           current_subgroup = i
         }
         
@@ -79,7 +79,7 @@ method1 <- function(D, threshold = 0, CAF = 0.5) {
   }
   
   return(list(
-    subgroups_idx = subgroups_idx,
+    subgroups_idx = as.factor(subgroups_idx),
     num_subgroups = length(subgroups),
     D_orig = D,
     subgroups_idx_sorted = sort(subgroups_idx),
