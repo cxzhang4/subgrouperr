@@ -3,8 +3,9 @@
 #' @param D A vector of crossover differences
 #' @param threshold If the largest gap is below this value, then do not form subgroups.
 #' @param CAF A multiplicative factor that determines the critical value for forming subgroups.
+#' 
 #'
-#' @return A list.
+#' @return A list. D_orig: original ordering but with
 #' @export
 method1 <- function(D, IDs, threshold = 0, CAF = 0.5) {
   NA_idx = is.na(D)
@@ -13,8 +14,8 @@ method1 <- function(D, IDs, threshold = 0, CAF = 0.5) {
   IDs_complete = IDs[!NA_idx]
 
   # TODO: assert CAF non-negative integer
-  n <- length(D)
-
+  n <- length(D_complete)
+  # browser()
   # radix sort is stable
   D_sorted_res <- sort(D_complete, method = "radix", index.return = TRUE)
 
@@ -87,7 +88,7 @@ method1 <- function(D, IDs, threshold = 0, CAF = 0.5) {
     subgroups_idx = as.factor(subgroups_vec),
     num_subgroups = length(subgroups),
     IDs_complete = IDs_complete,
-    D_orig = D,
+    D_orig = D_complete,
     subgroups_idx_sorted = sort(subgroups_vec),
     D_sorted = D_sorted,
     D_sorted_idx_in_orig = D_sorted_idx_in_orig,

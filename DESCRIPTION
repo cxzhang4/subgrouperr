@@ -9,7 +9,8 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports: 
-    purrr
+    purrr,
+    data.table
 URL: https://github.com/cxzhang4/subgrouperr
 BugReports: https://github.com/cxzhang4/subgrouperr/issues
 Suggests: 
