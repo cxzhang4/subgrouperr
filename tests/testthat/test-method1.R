@@ -21,7 +21,6 @@ test_that("subgrouping works when there are NAs", {
 
   expect_equal(sum(complete.cases(ghosh_table_3_copy)), 13L)
 
-  # TODO: debug
   subgroups_res = method1(ghosh_table_3_copy$D_i, ghosh_table_3_copy$Subject)
 
   complete_cases_idx = complete.cases(ghosh_table_3_copy)
